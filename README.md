@@ -2,7 +2,7 @@
 [**Bootstrap**](https://getbootstrap.com "Visit Bootstrap") 5.x + [**Vue**](https://vuejs.org "Visit Vue") 3.x - ESM Browser
 
 ## Getting Started
-This extension uses [**Maska**](https://github.com/beholdr/maska "Created By: beholdr") (required), so open vue-bootstrap.js and import it like:
+The extension uses [**Maska**](https://github.com/beholdr/maska "Created By: beholdr") (required), so open vue-bootstrap.js and import it like:
 ```javascript
 import { maska } from "./maska.esm.js";
 ```
