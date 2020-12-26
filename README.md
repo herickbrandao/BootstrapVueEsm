@@ -215,6 +215,37 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
 </Sel>
 ```
 
+### Possible Select Solution:
+```html
+<!-- Basic -->
+<label for="basicSelect" class="form-label">Works with selects</label>
+<select class="form-select" id="basicSelect">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+
+<!-- Float In -->
+<div class="form-floating">
+  <select class="form-select" id="floatingSelect">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <label for="floatingSelect">Works with selects</label>
+</div>
+
+<!-- Float Out -->
+<label class="has-float-label">
+  <select id="selExample" class="form-select vuejs-select">
+    <option>Example</option>
+  </select>
+    <span>Choose one</span>
+</label>
+```
+
 ## Multiple (Select Multiple)
 - options: {content: "name &#60;b>with html&#60;/b>", val: "realValue"} (structure);
 - name (unique);
