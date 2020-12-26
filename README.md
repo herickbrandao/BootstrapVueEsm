@@ -1,12 +1,11 @@
 # BootstrapVueEsm
-[**Bootstrap**](https://getbootstrap.com "Visit Bootstrap") 5.x + [**Vue**](https://vuejs.org "Visit Vue") 3.x - ESM Browser
+[**Bootstrap**](https://getbootstrap.com "Visit Bootstrap") 5.x + [**Vue**](https://vuejs.org "Visit Vue") 3.x - ESM Browser ([Download Vue.Esm-Browser 3.x](https://unpkg.com/vue@next/dist/vue.esm-browser.prod.js))
 
 ## Getting Started
 The extension uses [**Maska**](https://github.com/beholdr/maska "Created By: beholdr") (required), so open BootstrapVueEsm.js and import it like:
 ```javascript
 import { maska } from "./maska.esm.js";
 ```
-[Download Vue.Esm-Browser 3.x](https://unpkg.com/browse/vue@next/dist/vue.esm-browser.prod.js)
 
 Basic code (with Bootstrap 5.x, Vue.Esm-Browser 3.x and BootstrapVueEsm):
 ```html
