@@ -47,14 +47,21 @@ Basic Code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
 ```
 
 ## Components and props:
-### Btn (buttons)
+### Btn (Button)
 - color ( also outline-* ): primary, secondary, success, danger, warning, info, light, dark;
 - size: sm, lg;
 - type: button, submit, link;
 ```html
 <Btn color="primary">I'm a button!</Btn>
 ```
-
+You can also add **Btngroup**, like:
+```html
+<Btngroup>
+  <Btn color="primary">I'm a button!</Btn>
+  <Btn color="primary">I'm a button!</Btn>
+  <Btn color="primary">I'm a button!</Btn>
+</Btngroup>
+```
 ### Modal (Dialog)
 - position: center;
 ```html
@@ -97,4 +104,168 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
     </Column>
   </Row>
 </Container>
+```
+
+### Carousel
+- id (required);
+- indicators;
+- controls;
+#### Carrouselitem
+- src (required);
+- active;
+- captions;
+
+```html
+<div class="w-100">
+  <Carousel id="carousel" indicators controls>
+    <Carouselitem style="height: 500px;" src="#" active></Carouselitem>
+    <Carouselitem style="height: 500px;" src="#"></Carouselitem>
+    <Carouselitem style="height: 500px;" src="#" captions><h5>Some Text Inside</h5></Carouselitem>
+  </Carousel>
+</div>
+```
+
+## Card
+- img;
+- title;
+```html
+<Card title="Title here...">Content...</Card>
+```
+
+## Popover
+- content (required);
+- placement: bottom (default), left, right;
+- title;
+
+```html
+<Popover placement="right" title="it appears!" content="Hi, I'm a <b>Popover</b>">
+  <h4>TAP ME</h4>
+</Popover>
+```
+
+## Tooltip
+- placement: bottom (default), left, right;
+- title;
+
+```html
+<Tooltip placement="bottom" title="Today is <b>Friday</b>">
+  <input type="text" class="form-control">
+</Tooltip>
+```
+
+## Badge
+- color: primary, secondary, success, danger, warning, info, light, dark;
+```html
+<Badge color="primary">New</Badge>
+```
+
+## Field
+- size: sm, lg;
+- type: text (default), password, number;
+- float (Floating label types): in (default), out;
+- label (required if float);
+- mask: [See how works here](https://github.com/beholdr/maska);
+- name (unique);
+- disabled;
+- readonly;
+- autocomplete;
+- placeholder;
+- required;
+```html
+<!-- Name needs to be unique (is going to be a id attribute too) -->
+<Field name="username" label="Full Name" v-model="inputText" :mask="'#####-###'" float="out"></Field>
+```
+
+## Fieldtext (Textarea)
+- float (Floating label types): in (default), out;
+- label (required if float);
+- name (unique);
+- rows;
+- disabled;
+- readonly;
+- autocomplete;
+- placeholder;
+- required;
+```html
+<!-- Name needs to be unique (is going to be a id attribute too) -->
+<Fieldtext label="Talk about your life:" name="textareaExample" v-model="textArea" float="in"></Fieldtext>
+```
+
+## Sel (Select) - **Not recommended yet**
+- options: {content: "name <b>with html</b>", val: "realValue"} (structure);
+- name (unique);
+- size: sm, lg;
+- float (Floating label types): in (default), out;
+- label (required if float);
+- disabled;
+- <s>required</s> (isn't working);
+
+```html
+<Sel
+     label="SELECT ONE"
+     name="select-example"
+     float="out"
+     v-model="getSelect"
+     :options="[
+        {content: 'Select...', val:'', disabled: true},
+        {content: '<b>Option 1</b>', val: '1'},
+        {content: 'Option 2', val: '2'}
+     ]">
+</Sel>
+```
+
+## Multiple (Select Multiple)
+- options: {content: "name <b>with html</b>", val: "realValue"} (structure);
+- name (unique);
+- size: sm, lg;
+- float (Floating label types): in (default), out;
+- label (required if float);
+- disabled;
+- required;
+
+```html
+<Multiple
+     label="SELECT ANY"
+     name="select-multiple"
+     float="out"
+     v-model="getSelect"
+     :options="[
+        {content: 'Select...', val:'', disabled: true},
+        {content: 'Option 1', val: '1'},
+        {content: 'Option 2', val: '2'}
+     ]">
+</Multiple>
+```
+
+## Check (Checkbox, Switch, Radio)
+- id (important but not required);
+- type: checkbox (default), radio, switch, checkbox-inline, radio-inline, switch-inline;
+- name (required);
+- label;
+- required;
+- disabled;
+- value (Radio only & required);
+
+```html
+<!-- Radio -->
+<Check id="checkOne" name="radioUnique" v-model="checkRadio" type="radio-inline" value="0" disabled>Option 1</Check>
+<Check name="radioUnique" v-model="checkRadio" type="radio-inline" value="1" label="Option 2"></Check>
+
+<!-- Checkbox -->
+<Check name="checkBox" v-model="checkTrueFalse" type="checkbox">I agree.</Check>
+
+<!-- Switch -->
+<Check name="switchCheck" v-model="checkTrueFalse" type="switch">I agree.</Check>
+```
+
+## Range
+- name (unique);
+- label;
+- min;
+- max;
+- step;
+- disabled;
+
+```html
+<Range name="oneName" v-model="range"></Range>
 ```
