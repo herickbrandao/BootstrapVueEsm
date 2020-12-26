@@ -6,8 +6,9 @@ The extension uses [**Maska**](https://github.com/beholdr/maska "Created By: beh
 ```javascript
 import { maska } from "./maska.esm.js";
 ```
+[Download Vue.Esm-Browser 3.x](https://unpkg.com/browse/vue@next/dist/vue.esm-browser.prod.js)
 
-Basic code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
+Basic code (with Bootstrap 5.x, Vue.Esm-Browser 3.x and BootstrapVueEsm):
 ```html
 <!DOCTYPE html>
 <html>
@@ -28,7 +29,7 @@ Basic code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
   <script type="module">
-    import { createApp, ref } from "/vue.js";
+    import { createApp, ref } from "/vue.esm-browser.prod.js";
     import Bootstrap from "/BootstrapVueEsm.js";
 
     const App = {
