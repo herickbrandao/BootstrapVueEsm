@@ -1,3 +1,8 @@
+/*
+ * VueBootstrapEsm v0.2.1 Alpha
+ * Released under the MIT License.
+*/
+
 import { maska } from "./maska.esm.js";
 
 const Modalheader = { props: ["title"], template: `<div class="modal-header"><h5 class="modal-title" v-if="title!==undefined">{{ title }}</h5><slot></slot></div>` };
@@ -10,8 +15,8 @@ const Column = { props: ["xs","sm","md","lg","xl","xxl"], methods: { columnCheck
 const Btn = { props: ['color','size','type'], methods: { classCall() { var sizes = {lg:1,sm:1}; var colors = {primary:1,secondary:1,success:1,danger:1,warning:1,info:1,light:1,dark:1,link:1,close:1}; var classes = "btn"; if(sizes.hasOwnProperty(this.size)) { classes += " btn-"+this.size; } if(this.color && colors.hasOwnProperty(this.color.replace("outline-",""))) { classes += " btn-"+this.color; } return classes; }, }, template: `<a :class="classCall()" v-if="type == 'link'"><slot></slot></a><button :type="type!==undefined ? type : 'button'" :class="classCall()" v-else><slot></slot></button>` };
 const Btngroup = { template: `<div class="btn-group" role="group"><slot></slot></div>` };
 const Badge = { props: ["color"], methods: { typeCheck() { var type = "badge"; var colors = {primary:1,secondary:1,success:1,danger:1,warning:1,info:1,light:1,dark:1}; type += colors[this.color] ? " bg-"+this.color : " bg-secondary"; return type; } }, template: `<span :class="typeCheck()"><slot></slot></span>` };
-const Carouselitem = { props: ["active","captions","src"], methods: { defineClasses() { var classes = "carousel-item"; if(this.active!==undefined) { classes += " active"; } return classes; } }, mounted() { this.$parent.slides++; }, template: `<div :class="defineClasses()"><img :src="src" class="d-block w-100 h-100" style="object-fit: cover;"><div class="carousel-caption d-none d-md-block" v-if="captions!==undefined"><slot></slot></div></div>` };
-const Carousel = { props: ['id', 'indicators', 'controls'], data() { return { pointer: 0, slides: 0, getId: "" }; }, methods: { defineId() { this.getId = "#"+this.id; return this.id; } }, template: `<div :id="defineId()" class="carousel slide" data-bs-ride="carousel"><ol class="carousel-indicators" v-if="indicators!==undefined"><li :data-bs-target="getId" v-for="(n, slide) in slides" :data-bs-slide-to="slide" :class="slide===0 ? 'active' : false"></li></ol><div class="carousel-inner"><slot></slot></div><a class="carousel-control-prev" :href="getId" role="button" data-bs-slide="prev" v-if="controls!==undefined"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" :href="getId" role="button" data-bs-slide="next" v-if="controls!==undefined"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></a></div>` };
+const Carouselitem = { props: ["active","captions","src","href","link"], methods: { defineClasses() { var classes = "carousel-item"; if(this.active!==undefined) { classes += " active"; } return classes; } }, mounted() { this.$parent.slides++; }, template: `<div :class="defineClasses()"><a v-if="href!==undefined" :href="href"><img :src="src" class="d-block w-100 h-100" style="object-fit: cover;"/></a><router-link v-if="href===undefined&&link!==undefined" :to="link"><img :src="src" class="d-block w-100 h-100" style="object-fit: cover;"/></router-link><img v-if="href===undefined&&link===undefined" :src="src" class="d-block w-100 h-100" style="object-fit: cover;"><div class="carousel-caption d-none d-md-block" v-if="captions!==undefined"><slot></slot></div></div>` };
+const Carousel = { props: ['id','indicators','controls','dark'], data() { return { pointer: 0, slides: 0, getId: "" }; }, methods: { defineId() { this.getId = "#"+this.id; return this.id; }, defineClasses() { var classes = "carousel slide"; if(this.dark!==undefined){ classes+=" carousel-dark"; } return classes; } }, template: `<div :id="defineId()" :class="defineClasses()" data-bs-ride="carousel"><ol class="carousel-indicators" v-if="indicators!==undefined"><li :data-bs-target="getId" v-for="(n, slide) in slides" :data-bs-slide-to="slide" :class="slide===0 ? 'active' : false"></li></ol><div class="carousel-inner"><slot></slot></div><a class="carousel-control-prev" :href="getId" role="button" data-bs-slide="prev" v-if="controls!==undefined"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" :href="getId" role="button" data-bs-slide="next" v-if="controls!==undefined"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></a></div>` };
 const Card = { props: ["img","title"], template: `<div class="card"><img v-if="img!==undefined" :src="img" class="card-img-top"><div class="card-body"><h5 class="card-title" v-if="title!==undefined">{{title}}</h5><slot></slot></div></div>` };
 const Popover = { props: ["title","placement","content"], mounted() { new bootstrap.Popover(this.$el); }, template: `<span data-bs-html="true" data-bs-toggle="popover" :data-bs-placement="placement ?? 'bottom'" :title="title" :data-bs-content="content"><slot></slot></span>` };
 const Tooltip = { props: ["title","placement"], mounted() { new bootstrap.Tooltip(this.$el); }, template: `<span data-bs-html="true" data-bs-toggle="tooltip" :data-bs-placement="placement ?? 'bottom'" :title="title"><slot></slot></span>` };
@@ -25,29 +30,29 @@ const Range = { props: ["name","disabled","label","min","max","step","class","st
 
 export { Modalheader, Modalbody, Modalfooter, Modal, Container, Row, Column, Btn, Btngroup, Badge, Carouselitem, Carousel, Card, Popover, Tooltip, Alert, Field, Sel, Multiple, Fieldtext, Check, Range };
 export default {
-	install: (app, options) => {
-		app.directive("mask", maska);
-		app.component("Modalheader", Modalheader);
-		app.component("Modalbody", Modalbody);
-		app.component("Modalfooter", Modalfooter);
-		app.component("Modal", Modal);
-		app.component("Container", Container);
-		app.component("Row", Row);
-		app.component("Column", Column);
-		app.component("Btn", Btn);
-		app.component("Btngroup", Btngroup);
-		app.component("Badge", Badge);
-		app.component("Carouselitem", Carouselitem);
-		app.component("Carousel", Carousel);
-		app.component("Card", Card);
-		app.component("Popover", Popover);
-		app.component("Tooltip", Tooltip);
-		app.component("Alert", Alert);
-		app.component("Field", Field);
-		app.component("Sel", Sel);
-		app.component("Multiple", Multiple);
-		app.component("Fieldtext", Fieldtext);
-		app.component("Check", Check);
-		app.component("Range", Range);
-	}
+  install: (app, options) => {
+    app.directive("mask", maska);
+    app.component("Modalheader", Modalheader);
+    app.component("Modalbody", Modalbody);
+    app.component("Modalfooter", Modalfooter);
+    app.component("Modal", Modal);
+    app.component("Container", Container);
+    app.component("Row", Row);
+    app.component("Column", Column);
+    app.component("Btn", Btn);
+    app.component("Btngroup", Btngroup);
+    app.component("Badge", Badge);
+    app.component("Carouselitem", Carouselitem);
+    app.component("Carousel", Carousel);
+    app.component("Card", Card);
+    app.component("Popover", Popover);
+    app.component("Tooltip", Tooltip);
+    app.component("Alert", Alert);
+    app.component("Field", Field);
+    app.component("Sel", Sel);
+    app.component("Multiple", Multiple);
+    app.component("Fieldtext", Fieldtext);
+    app.component("Check", Check);
+    app.component("Range", Range);
+  }
 }
