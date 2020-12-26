@@ -20,7 +20,7 @@ Basic code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
 <body>
   
   <main id="app">  
-    <Row>
+    <Row class="gx-0">
       <Column :xs="12">Hello {{ who }}</Column>
     </Row>
   </main>
@@ -110,10 +110,13 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
 - id (required);
 - indicators;
 - controls;
+- dark;
 #### Carrouselitem
 - src (required);
 - active;
 - captions;
+- href;
+- link (vue-router support);
 
 ```html
 <div class="w-100">
