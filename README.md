@@ -7,7 +7,7 @@ The extension uses [**Maska**](https://github.com/beholdr/maska "Created By: beh
 import { maska } from "./maska.esm.js";
 ```
 
-Basic Code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
+Basic code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
 ```html
 <!DOCTYPE html>
 <html>
