@@ -13,7 +13,7 @@ Basic code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
 <html>
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/Bootstrap-extend.css">
+  <link rel="stylesheet" type="text/css" href="/BootstrapVueEsm.css">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Bootstrap 5.x +Vue 3.x - ESM Browser</title>
 </head>
@@ -29,7 +29,7 @@ Basic code (with Bootstrap, Vue.Esm and BootstrapVueEsm):
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
   <script type="module">
     import { createApp, ref } from "/vue.js";
-    import Bootstrap from "/vue-bootstrap.js";
+    import Bootstrap from "/BootstrapVueEsm.js";
 
     const App = {
       setup() {
