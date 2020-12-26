@@ -208,7 +208,7 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
      v-model="getSelect"
      :options="[
         {content: 'Select...', val:'', disabled: true},
-        {content: '&#60;b>Option 1&#60;/b>', val: '1'},
+        {content: '<b>Option 1</b>', val: '1'},
         {content: 'Option 2', val: '2'}
      ]">
 </Sel>
