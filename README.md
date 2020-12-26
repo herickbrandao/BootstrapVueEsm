@@ -245,6 +245,7 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
   <span>Choose one</span>
 </label>
 ```
+PS: Float Out has been created by [Anton Staroverov](https://github.com/tonycorporated/bootstrap-float-label)
 
 ## Multiple (Select Multiple)
 - options: {content: "name &#60;b>with html&#60;/b>", val: "realValue"} (structure);
