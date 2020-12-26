@@ -242,7 +242,7 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
   <select id="selExample" class="form-select vuejs-select">
     <option>Example</option>
   </select>
-    <span>Choose one</span>
+  <span>Choose one</span>
 </label>
 ```
 
