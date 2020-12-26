@@ -119,13 +119,11 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
 - link (vue-router support);
 
 ```html
-<div class="w-100">
-  <Carousel id="carousel" indicators controls>
-    <Carouselitem style="height: 500px;" src="#" active></Carouselitem>
-    <Carouselitem style="height: 500px;" src="#"></Carouselitem>
-    <Carouselitem style="height: 500px;" src="#" captions><h5>Some Text Inside</h5></Carouselitem>
-  </Carousel>
-</div>
+<Carousel id="carousel" indicators controls>
+  <Carouselitem style="height: 500px;" src="#" active></Carouselitem>
+  <Carouselitem style="height: 500px;" src="#"></Carouselitem>
+  <Carouselitem style="height: 500px;" src="#" captions><h5>Some Text Inside</h5></Carouselitem>
+</Carousel>
 ```
 
 ## Card
