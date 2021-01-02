@@ -172,7 +172,7 @@ xs,sm,md,lg,xl,xxl: 1,2,3,4,5,6,7,8,9,10,11,12;
 - autocomplete;
 - placeholder;
 - required;
-- inputmode (mobile keyboard): numeric, decimal, tel, email, url, search;
+- inputmode (mobile keyboard): text, numeric, decimal, tel, email, url, search;
 ```html
 <!-- Name needs to be unique (is going to be a id attribute too) -->
 <Field name="username" label="Full Name" v-model="inputText" :mask="'#####-###'" float="out"></Field>
