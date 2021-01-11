@@ -29,7 +29,7 @@ Basic code (with Bootstrap 5.x, Vue.Esm-Browser 3.x and BootstrapVueEsm):
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
   <script type="module">
     import { createApp, ref } from "/vue.esm-browser.prod.js";
-    import Bootstrap from "/BootstrapVueEsm.js";
+    import BootstrapVueEsm from "/BootstrapVueEsm.js";
 
     const App = {
       setup() {
@@ -39,7 +39,7 @@ Basic code (with Bootstrap 5.x, Vue.Esm-Browser 3.x and BootstrapVueEsm):
     };
 
     const app = createApp(App);
-    app.use(Bootstrap);
+    app.use(BootstrapVueEsm);
     app.mount("#app");
   </script>
 </body>
